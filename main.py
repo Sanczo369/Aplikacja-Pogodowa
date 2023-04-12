@@ -9,6 +9,16 @@ def airinfo():
         city= api[0]['ReportingArea']
         quality = api[0]['StateCode']
         category = api[0]['Category']["Name"]
+        if category == "Good":
+            root.config(bg="green")
+        elif category == "Moderate":
+            root.config(bg="Yellow")
+        elif category == "Unhealthy":
+            root.config(bg="Red")
+        elif category == "Unhealthy(For Sensitive Groups)":
+            root.config(bg="Orange")
+        elif category == "Very Unhealthy":
+            root.config(bg="Black")
         status_label = Label(root, text="City:"+city+"("+quality+") ->"+category)
         status_label.grid(row=2, columnspan=2)
     except Exception as e:
